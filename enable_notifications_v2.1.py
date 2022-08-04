@@ -17,15 +17,14 @@ Updated on 2019-07-03 by hbldh <henrik.blidh@gmail.com>
 
 """
 
-import sys
 import asyncio
-import platform
 
 from bleak import BleakClient
 
+# import sys
+# import platform
+
 from functools import partial # https://bleak.readthedocs.io/en/latest/troubleshooting.html#pass-more-parameters-to-a-notify-callback
-
-
 
 
 timeout_period = 10.# sec
@@ -47,14 +46,14 @@ class GoDice:
 
 listGoDice = []
 
-if 0:
+if 1:
     listGoDice.append( GoDice(
         COLOR = 'R'
         , ADDRESS = "D0CC6BEC-3905-874A-CC20-5F94225A7D28"
         , CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e" # GoDice R - Possible channel to listen to
     ) )
 
-if 1:
+if 0:
     listGoDice.append( GoDice(
         COLOR = 'B'
         , ADDRESS = "9F38B8FD-4189-47C6-7E65-84C208ED9B3E"
