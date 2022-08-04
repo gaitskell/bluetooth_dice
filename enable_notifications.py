@@ -15,7 +15,7 @@ Updated on 2019-07-03 by hbldh <henrik.blidh@gmail.com>
 
 import sys
 import asyncio
-import platform
+# import platform
 
 from bleak import BleakClient
 
@@ -24,12 +24,13 @@ timeout_period = 20.# sec
 # you can change these to match your device or override them from the command line
 # 6e400003-b5a3-f393-e0a9-e50e24dcca9e
 
+if 1:
 # GoDice R
 ADDRESS = "D0CC6BEC-3905-874A-CC20-5F94225A7D28"
 CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e" # GoDice R - Possible channel to listen to
 COLOR = 'R'
 
-if 1:
+if 0:
     # GoDice B
     ADDRESS = "9F38B8FD-4189-47C6-7E65-84C208ED9B3E"
     CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e"

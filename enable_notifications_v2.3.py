@@ -7,6 +7,7 @@
 # 220523 rg v2.2 Use gather( ) access two dice
 # 220524 rg v2.3 Add all dice
 # 220608 rg Add counter in window
+# 220804 rg v2.3.1 Trying to get code working with M1 Mac - doesn't want to link to dice ....
 
 """
 Notifications
@@ -18,13 +19,14 @@ Updated on 2019-07-03 by hbldh <henrik.blidh@gmail.com>
 
 """
 
-import sys
 import asyncio
-import platform
 import datetime
-import time
 import numpy as np
-import pynput
+
+# import sys
+# import platform
+# import time
+# import pynput
 
 from bleak import BleakClient
 
@@ -54,12 +56,24 @@ with Listener(on_click = on_click ) as listener:
 
 flagContinue = True # Whether to keep looping
 
-maxDataTakingPeriod = 20. # sec
-timeout_period = 240.  # sec
+# I would like the code to stop when the dice stop being rolled (for say 20 secs),
+# but currently can't get that to work, so instead simply has a limit on total active time
+#
+# maxDataTakingPeriod - currently ignored in code, ultimately sets time limit for a dice to be inactive before the bluetooth connection is dropped
+# timeout_period - period that code will take dice data for
 
-diceOutcomes = np.zeros((100000,3))
+maxDataTakingPeriod = 20.  # sec - ignored
+
+if False: # False if debugging, True usual length of data taking
+    timeout_period = 240.  # sec
+else:
+    timeout_period = 20.  # sec
+
+
+diceOutcomes = np.zeros((100000,3)) # Prereserve data array
 diceOutcomesIndex = 0 # Position to write data into
-startTime = datetime.datetime.now()
+
+startTime = datetime.datetime.now() # Record time of each roll
 
 # you can change these to match your device or override them from the command line
 # 6e400003-b5a3-f393-e0a9-e50e24dcca9e
