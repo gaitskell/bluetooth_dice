@@ -25,10 +25,10 @@ timeout_period = 20.# sec
 # 6e400003-b5a3-f393-e0a9-e50e24dcca9e
 
 if 1:
-# GoDice R
-ADDRESS = "D0CC6BEC-3905-874A-CC20-5F94225A7D28"
-CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e" # GoDice R - Possible channel to listen to
-COLOR = 'R'
+    # GoDice R
+    ADDRESS = "D0CC6BEC-3905-874A-CC20-5F94225A7D28"
+    CHARACTERISTIC_UUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e" # GoDice R - Possible channel to listen to
+    COLOR = 'R'
 
 if 0:
     # GoDice B
