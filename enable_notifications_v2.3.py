@@ -330,7 +330,7 @@ async def connect_and_notify( g ):
 
 # https://bleak.readthedocs.io/en/latest/troubleshooting.html#connecting-to-multiple-devices-at-the-same-time
 
-async def main(listDevices):
+async def main( listDevices ):
     global diceOutcomesIndex, diceOutcomes
     global maxDataTakingPeriod, timeout_period
 

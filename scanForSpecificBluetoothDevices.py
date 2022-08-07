@@ -1,4 +1,4 @@
-# Scan for Bluetooth devices
+# Scan for Specific Bluetooth Devices.py
 # 220521 rg v1
 #
 # https://pypi.org/project/bleak/
@@ -17,12 +17,14 @@ address = ""
 #address = '6e400001-b5a3-f393-e0a9-e50e24dcca9e'
 
 async def main(address):
+    global dev
 
     print( '\n\nSCANNING for any GoDice' )
     devices = await BleakScanner.discover()
     flag = True
     for d in devices:
         if flag and "GoDice" in d.name :
+            dev = d
             print("\n--------------------------------")
             print(d)
             type(d)
@@ -49,4 +51,6 @@ async def main(address):
 
 
 
-asyncio.run(main(address))
+asyncio.run(
+    main(address)
+)
