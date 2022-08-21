@@ -1,5 +1,13 @@
 # Project exclude paths
 /venv/
 /.idea/
-*.npy
-*.npz
+/data/*.npy
+/data/*.npz
+# Allow npy, npz from other directories
+__pycache__
+
+# Anything begining with dot,  but still sync
+.*
+!/.gitignore
+
+
